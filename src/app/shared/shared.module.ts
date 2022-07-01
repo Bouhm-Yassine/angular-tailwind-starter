@@ -32,8 +32,15 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSliderModule } from '@angular/material';
+import { MatProgressBarModule } from '@angular/material';
+import { MatSlideToggleModule } from '@angular/material';
+
 
 const modules = [
+  MatSlideToggleModule,
+  MatProgressBarModule,
+  MatSliderModule,
   CdkTreeModule,
   MatAutocompleteModule,
   MatButtonModule,

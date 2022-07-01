@@ -1,13 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
-// @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Splash&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Oxygen&display=swap");
-
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Oxygen; // Spartan, Roboto, "Helvetica Neue", sans-serif;
-}
+@import "./styles/theme.scss";
+@import "./styles/typography.scss";
+@import "./styles/base.scss";
+@import "./styles/flex.scss";
+@import "./styles/buttons.scss";
