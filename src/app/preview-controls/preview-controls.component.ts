@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormGroup, FormControl } from '@angular/forms';
+import { Validators, FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-preview-controls',
@@ -7,18 +7,8 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./preview-controls.component.scss']
 })
 export class PreviewControlsComponent implements OnInit {
-  addressForm = new FormGroup({
-    large: new FormControl(false),
-    quantity: new FormControl(10),
-    name: new FormControl(null, Validators.required),
-    street: new FormControl(null, Validators.required),
-    city: new FormControl(null, Validators.required),
-    state: new FormControl(null, Validators.required),
-    postalCode: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(5)]),
-    shipping: new FormControl('free', Validators.required),
-    tracking: new FormControl(true),
-    arrival: new FormControl(new Date())
-  });
+  addressForm!: FormGroup;
+
 
   states = [
     {
@@ -26,9 +16,21 @@ export class PreviewControlsComponent implements OnInit {
       'abbreviation': 'AL'
     },
   ];
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.addressForm = this.fb.group({
+      large: [false],
+      quantity: [10],
+      name: [null, Validators.required],
+      street: [null, Validators.required],
+      city: [null, Validators.required],
+      state: [null, Validators.required],
+      shipping: ['free', Validators.required],
+      tracking: [true],
+      arrival: [null],
+      postalCode: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(5)]],
+    });
   }
 
 }
